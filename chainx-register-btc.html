@@ -81,6 +81,8 @@
 
         <br><br>
 
+        <p id="message"></p>
+
         <input type="button" value="提交交易" class="btn btn-primary btn-block" disabled="disabled" id="sendtransaction">
 
         <br>
@@ -92,12 +94,10 @@
 
 
 <script>
-  function getUrlVars()
-  {
+  function getUrlVars() {
     var vars = [], hash;
     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
+    for (var i = 0; i < hashes.length; i++) {
       hash = hashes[i].split('=');
       vars.push(hash[0]);
       vars[hash[0]] = hash[1];
@@ -105,7 +105,7 @@
     return vars;
   }
 
-  const CHAINX_BTC = getUrlVars().address || 'n1QckJ1vMsQ1U5rDRqQMpMeeB2Rx8UHwMy';//'3K1oFZMks41C7qDYBsr72SYjapLqDuSYuN';
+  const CHAINX_BTC = getUrlVars().address || '2N8tR484JD32i1DY2FnRPLwBVaNuXSfzoAv';//'3K1oFZMks41C7qDYBsr72SYjapLqDuSYuN';
 
   var {
     toBitcoinTestAdress,
@@ -205,7 +205,11 @@
 
     // 第一个output 支付给跨链地址
     var ad = coinjs.addressDecode(CHAINX_BTC);
-    if (((ad.version == coinjs.pub || ad.version == coinjs.multisig || ad.type == "bech32") || ad.type == 'test')) { // address
+    if (((ad.version == coinjs.pub ||
+          ad.version == coinjs.multisig ||
+          ad.type == "bech32") ||
+        ad.type == 'test' || ad.type === 'other'
+      )) { // address
       // P2SH output is 32, P2PKH is 34
       estimatedTxSize += (ad.version == coinjs.pub ? 34 : 32)
       tx.addoutput(CHAINX_BTC, deposit * 1);  //支付给跨链地址
