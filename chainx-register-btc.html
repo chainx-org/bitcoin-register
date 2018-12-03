@@ -53,12 +53,8 @@
         <p></p>
 
         <b>助记词</b>:
-        <div class="input-group">
-
+        <div class="input-group" style="width: 100%">
           <input type="text" id="mnemonic" class="form-control" value="">
-          <span class="input-group-btn">
-                            <button id="loadbtc"" class=" btn btn-info" type="button">加载账户信息</button>
-                        </span>
         </div>
 
         <br>
@@ -73,17 +69,11 @@
         </div>
         <br><br>
         <b>Chainx地址</b>:
-        <div class="input-group">
-
+        <div class="input-group" style="width: 100%;">
           <input type="text" id="chainxaddress" class="form-control" value="">
-          <span class="input-group-btn">
-                            <span class="input-group-btn">
-                                <button id="buildchainxverify" class="btn btn-info" type="button">生成验证信息</button>
-                            </span>
-                        </span>
         </div>
 
-        <br><br>
+        <br>
         <b>OP_RETURN验证信息</b>:
         <div class="input-group">
 
@@ -100,14 +90,12 @@
           <input type="text" id="deposit" class="form-control" value="0">
         </div>
 
-        <br><br>
+        <br>
         <b> 手续费</b>:
         <div class="input-group">
           <input type="text" id="fee" class="form-control" value="0.003" readonly>
         </div>
 
-        <br>
-        <input type="button" value="签名交易"" class="btn btn-primary" id="sign">
         <br><br>
 
         <div id="transactionCreate" class="alert alert-success ">
@@ -136,23 +124,13 @@
 
   var {
     toBitcoinTestAdress,
-    toChainxPubkey,
-    toChainxBytes
   } = require('bitcoin-util');
-
-  function generateTxid(tx) {
-    var buffer = Crypto.util.hexToBytes(tx);
-    var hash = Crypto.SHA256(buffer, { asBytes: true });
-    var r = Crypto.util.bytesToHex(Crypto.SHA256(hash, { asBytes: true }));
-    return r;
-  }
 
   function toBalance(value) {
     return (value / 100000000).toFixed(8) * 1;
   }
 
-  // 加载btc账户信息
-  $('#loadbtc').click(function () {
+  function loadAccountInfo() {
     //var words = 'nasty transfer hair service rebuild region sail novel tower margin puppy fork';
     //$('#mnemonic').val(words);
     //通过助记词得到账户地址
@@ -181,9 +159,14 @@
       }
 
     });
+  }
+
+  $('#mnemonic').change(() => {
+    loadAccountInfo()
+    sign()
   })
-  // 生成OP_RETURN
-  $('#buildchainxverify').click(function () {
+
+  function bulilChainxVerify() {
     //var address='5GoKvZWG5ZPYL1WUovuHW3zJBWBP5eT8CbqjdRY4Q6iMaDtZ';
     var address = $('#chainxaddress').val().trim();
     var btcopreturn = 'ChainX:' + (address);
@@ -195,26 +178,29 @@
     else {
       $('#btcopreturn').val(btcopreturn);
     }
+  }
 
+  $('#chainxaddress').change(() => {
+    bulilChainxVerify()
+    sign()
   })
 
-  // 生成签名交易
-  $('#sign').click(function () {
+  function sign() {
     var deposit = $('#deposit').val().trim();
     var fee = $('#fee').val().trim();
     var total = (deposit * 1) + (fee * 1);
     var opreturn = $('#btcopreturn').val().trim();
 
     if (deposit * 1 < 0) {
-      alert('充值金额错误，请重新输入！');
+      console.log('充值金额错误，请重新输入！');
       return;
     }
     if (fee * 1 < 0) {
-      alert('手续费错误，请重新输入！');
+      console.log('手续费错误，请重新输入！');
       return;
     }
     if (opreturn.length < 1) {
-      alert('OP_RETURN 数据错误！');
+      console.log('OP_RETURN 数据错误！');
       return;
     }
 
@@ -304,7 +290,7 @@
         alert('账户余额不足!');
       }
     }, script, script, sequence);
-  })
+  }
 </script>
 
 </body>
