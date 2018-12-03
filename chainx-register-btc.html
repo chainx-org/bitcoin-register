@@ -208,7 +208,7 @@
     if (((ad.version == coinjs.pub ||
           ad.version == coinjs.multisig ||
           ad.type == "bech32") ||
-        ad.type == 'test' || ad.type === 'other'
+        ad.type == 'test'
       )) { // address
       // P2SH output is 32, P2PKH is 34
       estimatedTxSize += (ad.version == coinjs.pub ? 34 : 32)
