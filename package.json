@@ -22,11 +22,12 @@
   },
   "homepage": "https://github.com/Chainx",
   "dependencies": {
-    "bitcoinjs-lib": "3.3.2",
+    "bip32": "^1.0.2",
     "bip39": "^2.5.0",
-    "oo7-substrate": "^0.3.6",
+    "bitcoinjs-lib": "3.3.2",
     "blockchain.info": "^2.12.1",
     "bufferutil": "^4.0.0",
+    "oo7-substrate": "^0.3.6",
     "utf-8-validate": "^5.0.1"
   }
 }
