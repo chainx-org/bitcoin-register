@@ -44,10 +44,7 @@
 
     <div class="">
       <div class="tab-pane " id="newTransaction">
-        <h2>注册BTC
-          <small>绑定Chainx</small>
-          <small id="chainxbtcaddress"></small>
-        </h2>
+        <h2>导入您想要绑定的BTC账户</h2>
         <p></p>
 
         <b>助记词</b>:
@@ -83,28 +80,6 @@
         </div>
 
         <br><br>
-        <b> 充值金额(0代表只注册)</b>:
-        <div class="input-group">
-          <input type="text" id="deposit" class="form-control" value="0">
-        </div>
-
-        <br>
-        <b> 手续费</b>:
-        <div class="input-group">
-          <input type="text" id="fee" class="form-control" value="0.003" readonly>
-        </div>
-
-        <br><br>
-
-        <div id="transactionCreate" class="alert alert-success ">
-          <label>Transaction</label>
-          <br>
-          <textarea class="form-control" id="transaction" style="height:150px" readonly></textarea>
-
-          <p class="text-muted">Size: <span class="txSize">0</span> <i>bytes</i></p>
-          <p id="message"></p>
-
-        </div>
 
         <input type="button" value="提交交易" class="btn btn-primary btn-block" disabled="disabled" id="sendtransaction">
 
@@ -131,7 +106,6 @@
   }
 
   const CHAINX_BTC = getUrlVars().address || 'n1QckJ1vMsQ1U5rDRqQMpMeeB2Rx8UHwMy';//'3K1oFZMks41C7qDYBsr72SYjapLqDuSYuN';
-  $('#chainxbtcaddress').html(' (BTC Testnet3 多签跨链地址:' + CHAINX_BTC + ')');
 
   var {
     toBitcoinTestAdress,
@@ -197,8 +171,8 @@
   })
 
   function sign() {
-    var deposit = $('#deposit').val().trim();
-    var fee = $('#fee').val().trim();
+    var deposit = 0;
+    var fee = 0.0001;
     var total = (deposit * 1) + (fee * 1);
     var opreturn = $('#btcopreturn').val().trim();
 
@@ -275,12 +249,10 @@
         var signed = tx.sign(btcaccount.wif);
 
         console.log('签名交易:' + signed);
-        $('#transaction').val(signed);
         $('.txSize').html(signed.length / 2);
         $('#message').html('签名交易已被生成，点击下方按钮 ’提交交易‘ 即可广播交易！');
         $('#sendtransaction').prop('disabled', '')
         $('#sendtransaction').click(() => {
-          var txhex = $('#transaction').val().trim();
           // 广播交易
           tx.broadcast(function (data) {
             console.log('广播交易:' + JSON.stringify(data));
