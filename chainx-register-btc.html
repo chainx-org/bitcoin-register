@@ -3,309 +3,309 @@
 
 <head>
 
-    <title>Chainx-BTC 注册</title>
+  <title>Chainx-BTC 注册</title>
 
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <meta name="keywords" content="bitcoin, wallet, multisig, multisignature, address, browser, segwit, javascript, js, broadcast, transaction, verify, decode" />
-    <meta name="description" content="Chainx BTC Polkadot" />
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="keywords"
+        content="bitcoin, wallet, multisig, multisignature, address, browser, segwit, javascript, js, broadcast, transaction, verify, decode" />
+  <meta name="description" content="Chainx BTC Polkadot" />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" href="css/style.css" media="screen">
+  <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+  <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="css/style.css" media="screen">
 
-    <script type="text/javascript" src="./js/crypto-min.js"></script>
-    <script type="text/javascript" src="./js/crypto-sha256.js"></script>
-    <script type="text/javascript" src="./js/crypto-sha256-hmac.js"></script>
-    <script type="text/javascript" src="./js/sha512.js"></script>
-    <script type="text/javascript" src="./js/ripemd160.js"></script>
-    <script type="text/javascript" src="./js/aes.js"></script>
-    
-    <script type="text/javascript" src="./js/moment.min.js"></script>
-    <script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="./bitcoin-util.js"></script>
-    <script type="text/javascript" src="./coin.js"></script>
-    <script type="text/javascript" src="./js/jsbn.js"></script>
-    <script type="text/javascript" src="./js/ellipticcurve.js"></script>
+  <script type="text/javascript" src="./js/crypto-min.js"></script>
+  <script type="text/javascript" src="./js/crypto-sha256.js"></script>
+  <script type="text/javascript" src="./js/crypto-sha256-hmac.js"></script>
+  <script type="text/javascript" src="./js/sha512.js"></script>
+  <script type="text/javascript" src="./js/ripemd160.js"></script>
+  <script type="text/javascript" src="./js/aes.js"></script>
 
-    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript" src="./js/moment.min.js"></script>
+  <script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="./bitcoin-util.js"></script>
+  <script type="text/javascript" src="./coin.js"></script>
+  <script type="text/javascript" src="./js/jsbn.js"></script>
+  <script type="text/javascript" src="./js/ellipticcurve.js"></script>
+
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap-datetimepicker.min.js"></script>
 
 </head>
 
 <body>
-    <div id="wrap">
+<div id="wrap">
 
 
-        <div id="content" class="container">
+  <div id="content" class="container">
 
-            <div class="">
+    <div class="">
 
 
-                <div class="tab-pane " id="newTransaction">
-                    <h2>注册BTC <small>绑定Chainx</small><small id="chainxbtcaddress"></small></h2>
-                    <p></p>
+      <div class="tab-pane " id="newTransaction">
+        <h2>注册BTC
+          <small>绑定Chainx</small>
+          <small id="chainxbtcaddress"></small>
+        </h2>
+        <p></p>
 
-                    <b>助记词</b>:
-                    <div class="input-group">
+        <b>助记词</b>:
+        <div class="input-group">
 
-                        <input type="text" id="mnemonic" class="form-control" value="">
-                        <span class="input-group-btn">
+          <input type="text" id="mnemonic" class="form-control" value="">
+          <span class="input-group-btn">
                             <button id="loadbtc"" class=" btn btn-info" type="button">加载账户信息</button>
                         </span>
-                    </div>
+        </div>
 
-                    <br>
-                    <b>BTC地址</b>:
-                    <div class="input-group">
+        <br>
+        <b>BTC地址</b>:
+        <div class="input-group">
 
-                        <input type="text" id="btcaddress" class="form-control" value="" style="position: absolute;"
-                            readonly>
-                        <span class="input-group-btn">
+          <input type="text" id="btcaddress" class="form-control" value="" style="position: absolute;"
+                 readonly>
+          <span class="input-group-btn">
                             <button id="" class="btn btn-info" type="button"> </button>
                         </span>
-                    </div>
-                    <br><br>
-                    <b>Chainx地址</b>:
-                    <div class="input-group">
+        </div>
+        <br><br>
+        <b>Chainx地址</b>:
+        <div class="input-group">
 
-                        <input type="text" id="chainxaddress" class="form-control" value="">
-                        <span class="input-group-btn">
+          <input type="text" id="chainxaddress" class="form-control" value="">
+          <span class="input-group-btn">
                             <span class="input-group-btn">
                                 <button id="buildchainxverify" class="btn btn-info" type="button">生成验证信息</button>
                             </span>
                         </span>
-                    </div>
+        </div>
 
-                    <br><br>
-                    <b>OP_RETURN验证信息</b>:
-                    <div class="input-group">
+        <br><br>
+        <b>OP_RETURN验证信息</b>:
+        <div class="input-group">
 
-                        <input type="text" id="btcopreturn" class="form-control" value="" style="position: absolute;"
-                            readonly>
-                        <span class="input-group-btn">
+          <input type="text" id="btcopreturn" class="form-control" value="" style="position: absolute;"
+                 readonly>
+          <span class="input-group-btn">
                             <button id="redeemFromBtn" class="btn btn-info" type="button"> </button>
                         </span>
-                    </div>
-
-                    <br><br>
-                    <b> 充值金额(0代表只注册)</b>:
-                    <div class="input-group">
-                        <input type="text" id="deposit" class="form-control" value="0">
-                    </div>
-
-                    <br><br>
-                    <b> 手续费</b>:
-                    <div class="input-group">
-                        <input type="text" id="fee" class="form-control" value="0.003" readonly>
-                    </div>
-
-                    <br>
-                    <input type="button" value="签名交易"" class="btn btn-primary" id="sign">
-                    <br><br>
-
-                    <div id="transactionCreate" class="alert alert-success ">
-                        <label>Transaction</label>
-                        <br>
-                        <textarea class="form-control" id="transaction" style="height:150px" readonly></textarea>
-
-                        <p class="text-muted">Size: <span class="txSize">0</span> <i>bytes</i></p>
-                        <p id="message"></p>
-                    
-                    </div>
-
-                    <input type="button" value="提交交易" class="btn btn-primary btn-block" disabled="disabled" id="sendtransaction">
-
-                    <br>
-                </div>
-
-            </div>
         </div>
+
+        <br><br>
+        <b> 充值金额(0代表只注册)</b>:
+        <div class="input-group">
+          <input type="text" id="deposit" class="form-control" value="0">
+        </div>
+
+        <br><br>
+        <b> 手续费</b>:
+        <div class="input-group">
+          <input type="text" id="fee" class="form-control" value="0.003" readonly>
+        </div>
+
+        <br>
+        <input type="button" value="签名交易"" class="btn btn-primary" id="sign">
+        <br><br>
+
+        <div id="transactionCreate" class="alert alert-success ">
+          <label>Transaction</label>
+          <br>
+          <textarea class="form-control" id="transaction" style="height:150px" readonly></textarea>
+
+          <p class="text-muted">Size: <span class="txSize">0</span> <i>bytes</i></p>
+          <p id="message"></p>
+
+        </div>
+
+        <input type="button" value="提交交易" class="btn btn-primary btn-block" disabled="disabled" id="sendtransaction">
+
+        <br>
+      </div>
+
     </div>
+  </div>
+</div>
 
 
+<script>
+  const CHAINX_BTC = 'n1QckJ1vMsQ1U5rDRqQMpMeeB2Rx8UHwMy';//'3K1oFZMks41C7qDYBsr72SYjapLqDuSYuN';
+  $('#chainxbtcaddress').html(' (BTC Testnet3 多签跨链地址:' + CHAINX_BTC + ')');
 
-    <script>
-        const CHAINX_BTC='n1QckJ1vMsQ1U5rDRqQMpMeeB2Rx8UHwMy';//'3K1oFZMks41C7qDYBsr72SYjapLqDuSYuN';
-        $('#chainxbtcaddress').html(' (BTC Testnet3 多签跨链地址:'+CHAINX_BTC+')');
+  var {
+    toBitcoinTestAdress,
+    toChainxPubkey,
+    toChainxBytes
+  } = require('bitcoin-util');
 
-        var {
-            toBitcoinTestAdress,
-            toChainxPubkey,
-            toChainxBytes
-        } = require('bitcoin-util');
+  function generateTxid(tx) {
+    var buffer = Crypto.util.hexToBytes(tx);
+    var hash = Crypto.SHA256(buffer, { asBytes: true });
+    var r = Crypto.util.bytesToHex(Crypto.SHA256(hash, { asBytes: true }));
+    return r;
+  }
 
-        function generateTxid(tx){
-            var buffer = Crypto.util.hexToBytes(tx);
-            var hash = Crypto.SHA256(buffer, {asBytes: true});
-            var r = Crypto.util.bytesToHex(Crypto.SHA256(hash, {asBytes: true}));
-            return r;
+  function toBalance(value) {
+    return (value / 100000000).toFixed(8) * 1;
+  }
+
+  // 加载btc账户信息
+  $('#loadbtc').click(function () {
+    //var words = 'nasty transfer hair service rebuild region sail novel tower margin puppy fork';
+    //$('#mnemonic').val(words);
+    //通过助记词得到账户地址
+    var words = $('#mnemonic').val().trim();
+    if (!words || words.length < 1) {
+      alert('请输入BTC账户助记词!');
+      return;
+    }
+    var address = toBitcoinTestAdress(words).address;
+    console.log('助记词:' + words);
+    console.log('用户BTC地址:' + address);
+    //查询账户余额
+    coinjs.addressBalance(address, function (data) {
+      try {
+        console.log(data);
+
+        if (data.final_balance) {
+          console.log('账户余额:' + data.final_balance);
+          $('#btcaddress').val(address + ' (余额:' + toBalance(data.final_balance) +
+            ')')
+        } else {
+          console.log("查询账户余额失败");
         }
-        function toBalance(value) {
-            return (value / 100000000).toFixed(8) * 1;
+      } catch (e) {
+        console.log("返回数据异常" + e);
+      }
+
+    });
+  })
+  // 生成OP_RETURN
+  $('#buildchainxverify').click(function () {
+    //var address='5GoKvZWG5ZPYL1WUovuHW3zJBWBP5eT8CbqjdRY4Q6iMaDtZ';
+    var address = $('#chainxaddress').val().trim();
+    var btcopreturn = 'ChainX:' + (address);
+    console.log('ChainX地址:' + address);
+    console.log('OP_RETURN:' + btcopreturn);
+    if (btcopreturn.length < 3) {
+      alert('格式错误，请重新输入！')
+    }
+    else {
+      $('#btcopreturn').val(btcopreturn);
+    }
+
+  })
+
+  // 生成签名交易
+  $('#sign').click(function () {
+    var deposit = $('#deposit').val().trim();
+    var fee = $('#fee').val().trim();
+    var total = (deposit * 1) + (fee * 1);
+    var opreturn = $('#btcopreturn').val().trim();
+
+    if (deposit * 1 < 0) {
+      alert('充值金额错误，请重新输入！');
+      return;
+    }
+    if (fee * 1 < 0) {
+      alert('手续费错误，请重新输入！');
+      return;
+    }
+    if (opreturn.length < 1) {
+      alert('OP_RETURN 数据错误！');
+      return;
+    }
+
+    console.log('跨链接收地址:' + CHAINX_BTC);
+    console.log('OP_RETURN:' + opreturn);
+    console.log('充值金额:' + deposit);
+    console.log('手续费:' + fee);
+    console.log('总共支付:' + total);
+
+    //注意 当前不支持 Segwit
+    var btcaccount = toBitcoinTestAdress($('#mnemonic').val().trim());
+    var address = btcaccount.address;
+    var tx = coinjs.transaction();
+    var script = false;
+    var sequence = false;
+    var estimatedTxSize = 10; // <4:version><1:txInCount><1:txOutCount><4:nLockTime>
+
+    // 第一个output 支付给跨链地址
+    var ad = coinjs.addressDecode(CHAINX_BTC);
+    if (((ad.version == coinjs.pub || ad.version == coinjs.multisig || ad.type == "bech32") || ad.type == 'test')) { // address
+      // P2SH output is 32, P2PKH is 34
+      estimatedTxSize += (ad.version == coinjs.pub ? 34 : 32)
+      tx.addoutput(CHAINX_BTC, deposit * 1);  //支付给跨链地址
+    } else if ((ad.version === 42)) { // stealth address
+      // 1 P2PKH and 1 OP_RETURN with 36 bytes, OP byte, and 8 byte value
+      estimatedTxSize += 78
+      tx.addstealth(ad, deposit * 1);
+    }
+    // 添加op_return
+    estimatedTxSize += (opreturn.length / 2) + 1 + 8
+
+    tx.adddataofstring(opreturn);
+
+    console.log('支付源地址:' + address);
+
+    tx.addUnspent(address, total * 100000000, function (data) {
+      console.log('unspend:' + JSON.stringify(data));
+      if (!data.value) {
+        console.log("添加unspend 出现异常!");
+        return;
+      }
+      var dvalue = (data.value / 100000000).toFixed(8) * 1;
+      total = (total * 1).toFixed(8) * 1;
+
+      if (dvalue >= total) {
+        var change = dvalue - total;
+        if ((change * 1) > 0) {
+          // 第二个output 支付给找零
+          var ad = coinjs.addressDecode(address);
+          if (((ad.version == coinjs.pub || ad.version == coinjs.multisig || ad.type == "bech32") || ad.type == 'test')) { // address
+            // P2SH output is 32, P2PKH is 34
+            estimatedTxSize += (ad.version == coinjs.pub ? 34 : 32)
+            tx.addoutput(address, change * 1);  //支付给跨链地址
+          } else if ((ad.version === 42)) { // stealth address
+            // 1 P2PKH and 1 OP_RETURN with 36 bytes, OP byte, and 8 byte value
+            estimatedTxSize += 78
+            tx.addstealth(ad, change * 1);
+          }
         }
-        // 加载btc账户信息
-        $('#loadbtc').click(function () {
-            //var words = 'nasty transfer hair service rebuild region sail novel tower margin puppy fork';
-            //$('#mnemonic').val(words);
-            //通过助记词得到账户地址
-            var words = $('#mnemonic').val().trim();
-            if( !words || words.length < 1 ){
-                alert('请输入BTC账户助记词!');
-                return ;
-            }
-            var address = toBitcoinTestAdress(words).address;
-            console.log('助记词:' + words);
-            console.log('用户BTC地址:' + address);
-            //查询账户余额
-            coinjs.addressBalance(address, function (data) {
-                try {
-                    console.log(data);
-                    
-                    if (data.final_balance) {
-                        console.log('账户余额:' + data.final_balance);
-                        $('#btcaddress').val(address + ' (余额:' + toBalance(data.final_balance) +
-                            ')')
-                    } else {
-                        console.log("查询账户余额失败");
-                    }
-                } catch (e) {
-                    console.log("返回数据异常"+e);
-                }
 
-            });
-        })
-        // 生成OP_RETURN
-        $('#buildchainxverify').click(function(){
-            //var address='5GoKvZWG5ZPYL1WUovuHW3zJBWBP5eT8CbqjdRY4Q6iMaDtZ';
-            var address=$('#chainxaddress').val().trim();
-            var btcopreturn='ChainX:'+(address);
-            console.log('ChainX地址:' + address);
-            console.log('OP_RETURN:' + btcopreturn);
-            if( btcopreturn.length < 3 ){
-                alert('格式错误，请重新输入！')
+        var signed = tx.sign(btcaccount.wif);
+
+        console.log('签名交易:' + signed);
+        $('#transaction').val(signed);
+        $('.txSize').html(signed.length / 2);
+        $('#message').html('签名交易已被生成，点击下方按钮 ’提交交易‘ 即可广播交易！');
+        $('#sendtransaction').prop('disabled', '')
+        $('#sendtransaction').click(() => {
+          var txhex = $('#transaction').val().trim();
+          // 广播交易
+          tx.broadcast(function (data) {
+            console.log('广播交易:' + JSON.stringify(data));
+            if (data.tx && data.tx.hash) {
+              $('#message').html('交易广播成功！txHash:<a href="https://testnet.smartbit.com.au/tx/' + data.tx.hash + '" target="_blank">' + data.tx.hash + '</a>');
             }
-            else{
-                $('#btcopreturn').val(btcopreturn);
+            else {
+              alert('广播交易异常!' + JSON.stringify(data));
             }
-            
+            $('#sendtransaction').prop('disabled', 'disabled')
+          }, signed)
+
+          $('#sendtransaction').unbind();
         })
 
-        // 生成签名交易
-        $('#sign').click(function(){
-            var deposit=$('#deposit').val().trim();
-            var fee=$('#fee').val().trim();
-            var total = (deposit*1) + (fee*1);
-            var opreturn=$('#btcopreturn').val().trim();
-
-            if( deposit*1 < 0 ){
-                alert('充值金额错误，请重新输入！');
-                return ;
-            }
-            if( fee*1 < 0 ){
-                alert('手续费错误，请重新输入！');
-                return ;
-            }
-            if( opreturn.length < 1 ){
-                alert('OP_RETURN 数据错误！');
-                return ;
-            }
-
-            console.log('跨链接收地址:'+CHAINX_BTC);
-            console.log('OP_RETURN:'+opreturn);
-            console.log('充值金额:'+deposit);
-            console.log('手续费:'+fee);
-            console.log('总共支付:'+total);
-            
-            //注意 当前不支持 Segwit 
-            var btcaccount=toBitcoinTestAdress($('#mnemonic').val().trim());
-            var address = btcaccount.address;
-            var tx = coinjs.transaction();
-            var script = false;
-            var sequence = false;
-            var estimatedTxSize = 10; // <4:version><1:txInCount><1:txOutCount><4:nLockTime>
-
-            // 第一个output 支付给跨链地址
-            var ad = coinjs.addressDecode(CHAINX_BTC);
-            if(( (ad.version == coinjs.pub || ad.version == coinjs.multisig || ad.type=="bech32") || ad.type == 'test') ){ // address
-				// P2SH output is 32, P2PKH is 34
-				estimatedTxSize += (ad.version == coinjs.pub ? 34 : 32)
-				tx.addoutput(CHAINX_BTC, deposit*1);  //支付给跨链地址
-			} else if (( ad.version === 42) ){ // stealth address
-				// 1 P2PKH and 1 OP_RETURN with 36 bytes, OP byte, and 8 byte value
-				estimatedTxSize += 78
-				tx.addstealth(ad, deposit*1);
-            } 
-            // 添加op_return
-            estimatedTxSize += (opreturn.length / 2) + 1 + 8
-        
-            tx.adddataofstring(opreturn);       
-           
-            console.log('支付源地址:'+address);
-            
-            tx.addUnspent(address,total*100000000, function(data){
-                console.log('unspend:'+JSON.stringify(data) );
-                if( ! data.value ){
-                    console.log("添加unspend 出现异常!");
-                    return ;
-                }
-                var dvalue = (data.value/100000000).toFixed(8) * 1;
-                total = (total*1).toFixed(8) * 1;
-
-                if(dvalue>=total){
-                    var change = dvalue-total;
-                    if((change*1)>0){
-                        // 第二个output 支付给找零
-                        var ad = coinjs.addressDecode(address);
-                        if(( (ad.version == coinjs.pub || ad.version == coinjs.multisig || ad.type=="bech32") || ad.type == 'test') ){ // address
-                            // P2SH output is 32, P2PKH is 34
-                            estimatedTxSize += (ad.version == coinjs.pub ? 34 : 32)
-                            tx.addoutput(address, change*1);  //支付给跨链地址
-                        } else if (( ad.version === 42) ){ // stealth address
-                            // 1 P2PKH and 1 OP_RETURN with 36 bytes, OP byte, and 8 byte value
-                            estimatedTxSize += 78
-                            tx.addstealth(ad, change*1);
-                        } 
-                    }
-
-                    var signed =tx.sign(btcaccount.wif);
-
-                    console.log('签名交易:'+signed);
-                    $('#transaction').val(signed);
-                    $('.txSize').html(signed.length/2);
-                    $('#message').html('签名交易已被生成，点击下方按钮 ’提交交易‘ 即可广播交易！');
-                    $('#sendtransaction').prop('disabled','')
-                    $('#sendtransaction').click(()=>{
-                        var txhex=$('#transaction').val().trim();
-                        // 广播交易
-                        tx.broadcast(function(data){
-                                    console.log('广播交易:'+JSON.stringify(data));
-                                    if( data.tx && data.tx.hash ){
-                                        $('#message').html('交易广播成功！txHash:<a href="https://testnet.smartbit.com.au/tx/'+data.tx.hash+'" target="_blank">'+data.tx.hash+'</a>');
-                                    }
-                                    else{
-                                        alert('广播交易异常!'+JSON.stringify(data));
-                                    }
-                                    $('#sendtransaction').prop('disabled','disabled')
-                                }, signed)
-
-                        $('#sendtransaction').unbind();
-                    })
-
-                    return ;
-                } else {
-                    alert('账户余额不足!');
-                }
-
-                }, script, script, sequence);
-
-            })
-        
-
-          
-    </script>
+        return;
+      } else {
+        alert('账户余额不足!');
+      }
+    }, script, script, sequence);
+  })
+</script>
 
 </body>
 
