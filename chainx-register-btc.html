@@ -63,7 +63,7 @@
                         </span>
         </div>
         <br><br>
-        <b>Chainx地址</b>:
+        <b>ChainX地址</b>:
         <div class="input-group" style="width: 100%;">
           <input type="text" id="chainxaddress" class="form-control" value="">
         </div>
@@ -105,7 +105,12 @@
     return vars;
   }
 
-  const CHAINX_BTC = getUrlVars().address || '2N8tR484JD32i1DY2FnRPLwBVaNuXSfzoAv';//'3K1oFZMks41C7qDYBsr72SYjapLqDuSYuN';
+  const CHAINX_BTC = getUrlVars().btc || '2N8tR484JD32i1DY2FnRPLwBVaNuXSfzoAv';//'3K1oFZMks41C7qDYBsr72SYjapLqDuSYuN';
+  const INIT_CHAINX_ADDR = getUrlVars().chainx;
+  if (INIT_CHAINX_ADDR) {
+    $('#chainxaddress').val(INIT_CHAINX_ADDR);
+    bulilChainxVerify();
+  }
 
   var {
     toBitcoinTestAdress,
@@ -154,7 +159,7 @@
   function bulilChainxVerify() {
     //var address='5GoKvZWG5ZPYL1WUovuHW3zJBWBP5eT8CbqjdRY4Q6iMaDtZ';
     var address = $('#chainxaddress').val().trim();
-    var btcopreturn = 'ChainX:' + (address);
+    var btcopreturn = 'ChainXPC:' + (address);
     console.log('ChainX地址:' + address);
     console.log('OP_RETURN:' + btcopreturn);
     if (btcopreturn.length < 3) {
@@ -261,7 +266,7 @@
           tx.broadcast(function (data) {
             console.log('广播交易:' + JSON.stringify(data));
             if (data.tx && data.tx.hash) {
-              $('#message').html('交易广播成功！txHash:<a href="https://testnet.smartbit.com.au/tx/' + data.tx.hash + '" target="_blank">' + data.tx.hash + '</a>');
+              $('#message').html('交易广播成功！txHash:<a href="https://testnet.blockchain.info/tx' + data.tx.hash + '" target="_blank">' + data.tx.hash + '</a>');
             }
             else {
               alert('广播交易异常!' + JSON.stringify(data));
