@@ -14,6 +14,7 @@
 	coinjs.test= 0x6F;
 	coinjs.priv = 0x80;
 	coinjs.multisig = 0x05;
+	coinjs.test_multisig= 0xC4;
 	coinjs.hdkey = {'prv':0x0488ade4, 'pub':0x0488b21e};
 	coinjs.bech32 = {'charset':'qpzry9x8gf2tvdw0s3jn54khce6mua7l', 'version':0, 'hrp':'bc'};
 
@@ -266,10 +267,13 @@
 				if(o.version==coinjs.pub){ // standard address
 					o.type = 'standard';
 
-				} else if (o.version==coinjs.multisig) { // multisig address
+				} else if (o.version==coinjs.multisig ) { // multisig address
 					o.type = 'multisig';
 
-				} else if (o.version==coinjs.priv){ // wifkey
+				} else if( o.version== coinjs.test_multisig ){
+					o.type = 'test_multisig';
+				}
+				else if (o.version==coinjs.priv){ // wifkey
 					o.type = 'wifkey';
 
 				} else if( o.version == coinjs.test ){
@@ -885,7 +889,7 @@
 			if(addr.type == "bech32"){
 				s.writeOp(0);
 				s.writeBytes(Crypto.util.hexToBytes(addr.redeemscript));
-			} else if(addr.version==coinjs.multisig){ // multisig address
+			} else if(addr.version==coinjs.multisig || addr.version == coinjs.test_multisig){ // multisig address
 				s.writeOp(169); //OP_HASH160
 				s.writeBytes(addr.bytes);
 				s.writeOp(135); //OP_EQUAL
