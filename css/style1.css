@@ -118,3 +118,21 @@ body {
 #fees .total {
 	font-size: 100px;
 }
+
+#sendtransaction{
+	background: #f6c94a;
+	border-width: 0;
+	color: #3f3f3f;
+	border-image: unset;
+	border-color: unset;
+    outline: none;
+}
+
+#sendtransaction:hover {
+	background: #D8B041;
+}
+
+#sendtransaction:disabled {
+	background: #F9DE92;
+	color: #AE9E70;
+}
